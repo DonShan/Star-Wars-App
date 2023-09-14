@@ -20,6 +20,7 @@
 		4DD6698D2AB2CCC300964936 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6698C2AB2CCC300964936 /* PlanetsViewController.swift */; };
 		4DD6698F2AB3424600964936 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6698E2AB3424600964936 /* PlanetTableViewCell.swift */; };
 		4DD669912AB34DC700964936 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD669902AB34DC700964936 /* PlanetDetailViewController.swift */; };
+		4DD9BBC82AB3956F00EA2907 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9BBC72AB3956F00EA2907 /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4DD6698C2AB2CCC300964936 /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
 		4DD6698E2AB3424600964936 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
 		4DD669902AB34DC700964936 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
+		4DD9BBC72AB3956F00EA2907 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		4DD6696C2AB2C6EC00964936 /* Star Wars App */ = {
 			isa = PBXGroup;
 			children = (
+				4DD9BBC62AB3956000EA2907 /* Support */,
 				4DD669952AB373DE00964936 /* Service */,
 				4DD669942AB373CF00964936 /* Model */,
 				4DD669932AB373B700964936 /* View */,
@@ -116,6 +119,14 @@
 				4DD6698A2AB2CC3000964936 /* StarWarsService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		4DD9BBC62AB3956000EA2907 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4DD9BBC72AB3956F00EA2907 /* ServiceError.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 				4DD6698D2AB2CCC300964936 /* PlanetsViewController.swift in Sources */,
 				4DD669702AB2C6EC00964936 /* SceneDelegate.swift in Sources */,
 				4DD669892AB2CBF500964936 /* PlanetsViewModel.swift in Sources */,
+				4DD9BBC82AB3956F00EA2907 /* ServiceError.swift in Sources */,
 				4DD6698B2AB2CC3000964936 /* StarWarsService.swift in Sources */,
 				4DD669822AB2CB5D00964936 /* Planet.swift in Sources */,
 			);

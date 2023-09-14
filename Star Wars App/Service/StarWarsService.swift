@@ -16,7 +16,7 @@ class StarWarsService {
     func fetchPlanets() -> Observable<[Planet]> {
         return Observable.create { observer in
             guard let url = URL(string: "\(self.baseURL)/planets") else {
-                observer.onError(NSError(domain: "Invalid URL", code: 0, userInfo: nil))
+                observer.onError(ServiceError.invalidURL)
                 return Disposables.create()
             }
             
@@ -26,8 +26,18 @@ class StarWarsService {
                     return
                 }
                 
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    observer.onError(ServiceError.invalidResponse)
+                    return
+                }
+                
+                guard httpResponse.statusCode == 200 else {
+                    observer.onError(ServiceError.invalidStatusCode(httpResponse.statusCode))
+                    return
+                }
+                
                 guard let data = data else {
-                    observer.onError(NSError(domain: "No data received", code: 0, userInfo: nil))
+                    observer.onError(ServiceError.noDataReceived)
                     return
                 }
                 
@@ -55,6 +65,5 @@ class StarWarsService {
             }
         }
     }
-    
 }
 
