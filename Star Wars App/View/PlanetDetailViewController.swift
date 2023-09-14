@@ -37,7 +37,7 @@ class PlanetDetailViewController: UIViewController {
                 .map { data -> UIImage? in
                     return UIImage(data: data)
                 }
-                .observeOn(MainScheduler.instance)
+                .observe(on: MainScheduler.instance)
                 .bind(to: iconPlanet.rx.image)
                 .disposed(by: disposeBag)
         }
