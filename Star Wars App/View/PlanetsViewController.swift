@@ -20,47 +20,43 @@ class PlanetsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchPlanets()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        setupTableViewBindings()
         navigationItem.title = "Star Wars App"
     }
     
-    func fetchPlanets() {
-        viewModel.fetchPlanets()
+    func setupTableViewBindings() {
+        let planetsObservable = viewModel.fetchPlanets()
             .observe(on: MainScheduler.instance)
+            .share()
+        
+        planetsObservable
+            .bind(to: tableView.rx.items(cellIdentifier: "PlanetCell", cellType: PlanetTableViewCell.self)) { _, planet, cell in
+                cell.planetName?.text = "Planet Name: \(planet.name)"
+                cell.climate?.text = "Climate: \(planet.climate)"
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+                let planet = self?.planets[indexPath.row]
+                self?.navigateToPlanetDetail(planet)
+            })
+            .disposed(by: disposeBag)
+        
+        planetsObservable
             .subscribe(onNext: { [weak self] planets in
                 self?.planets = planets
-                self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
     }
     
-}
-
-extension PlanetsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return planets.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath) as! PlanetTableViewCell
-        let planet = planets[indexPath.row]
-        cell.planetName?.text = "Planet Name: \(planet.name)"
-        cell.climate?.text = "Climate: \(planet.climate)"
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let planet = planets[indexPath.row]
+    func navigateToPlanetDetail(_ planet: Planet?) {
+        guard let planet = planet else { return }
         
         if let planetDetailVC = storyboard?.instantiateViewController(withIdentifier: "PlanetDetailViewController") as? PlanetDetailViewController {
             planetDetailVC.planet = planet
             navigationController?.pushViewController(planetDetailVC, animated: true)
         }
     }
-    
 }

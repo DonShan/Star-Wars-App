@@ -11,14 +11,9 @@ class PlanetTableViewCell: UITableViewCell {
     @IBOutlet weak var planetName: UILabel!
     @IBOutlet weak var climate: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    func configure(with planet: Planet) {
+        planetName.text = "Planet Name: \(planet.name)"
+        climate.text = "Climate: \(planet.climate)"
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
 }
+

@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class PlanetDetailViewController: UIViewController {
-    @IBOutlet weak var planetNameLabel: UILabel! 
+    @IBOutlet weak var planetNameLabel: UILabel!
     @IBOutlet weak var orbitalPeriodLabel: UILabel!
     @IBOutlet weak var gravityLabel: UILabel!
     @IBOutlet weak var iconPlanet: UIImageView!
     
     var planet: Planet?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +28,20 @@ class PlanetDetailViewController: UIViewController {
             planetNameLabel.text = "Planet Name: \(planet.name)"
             orbitalPeriodLabel.text = "Orbital Period: \(planet.orbitalPeriod ??  "orbital_period")"
             gravityLabel.text = "Gravity: \(planet.gravity)"
-            
         }
     }
     
     func fetchImage() {
         if let imageURLString = planet?.imageURL, let imageURL = URL(string: imageURLString) {
-            URLSession.shared.dataTask(with: imageURL) { data, _, error in
-                if let data = data, let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.iconPlanet.image = image
-                    }
+            URLSession.shared.rx.data(request: URLRequest(url: imageURL))
+                .map { data -> UIImage? in
+                    return UIImage(data: data)
                 }
-            }.resume()
+                .observeOn(MainScheduler.instance)
+                .bind(to: iconPlanet.rx.image)
+                .disposed(by: disposeBag)
         }
     }
 }
+
 
