@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4DD6696A2AB2C6EC00964936 /* Star Wars App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Star Wars App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DD6696A2AB2C6EC00964936 /* StarWarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD6696D2AB2C6EC00964936 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DD6696F2AB2C6EC00964936 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4DD669742AB2C6EC00964936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		4DD6696B2AB2C6EC00964936 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4DD6696A2AB2C6EC00964936 /* Star Wars App.app */,
+				4DD6696A2AB2C6EC00964936 /* StarWarsApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,9 +132,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4DD669692AB2C6EC00964936 /* Star Wars App */ = {
+		4DD669692AB2C6EC00964936 /* StarWarsApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4DD6697E2AB2C6ED00964936 /* Build configuration list for PBXNativeTarget "Star Wars App" */;
+			buildConfigurationList = 4DD6697E2AB2C6ED00964936 /* Build configuration list for PBXNativeTarget "StarWarsApp" */;
 			buildPhases = (
 				4DD669662AB2C6EC00964936 /* Sources */,
 				4DD669672AB2C6EC00964936 /* Frameworks */,
@@ -144,13 +144,13 @@
 			);
 			dependencies = (
 			);
-			name = "Star Wars App";
+			name = StarWarsApp;
 			packageProductDependencies = (
 				4DD669842AB2CBB800964936 /* RxCocoa */,
 				4DD669862AB2CBB800964936 /* RxSwift */,
 			);
 			productName = "Star Wars App";
-			productReference = 4DD6696A2AB2C6EC00964936 /* Star Wars App.app */;
+			productReference = 4DD6696A2AB2C6EC00964936 /* StarWarsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4DD669652AB2C6EC00964936 /* Build configuration list for PBXProject "Star Wars App" */;
+			buildConfigurationList = 4DD669652AB2C6EC00964936 /* Build configuration list for PBXProject "StarWarsApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -184,7 +184,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4DD669692AB2C6EC00964936 /* Star Wars App */,
+				4DD669692AB2C6EC00964936 /* StarWarsApp */,
 			);
 		};
 /* End PBXProject section */
@@ -414,7 +414,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4DD669652AB2C6EC00964936 /* Build configuration list for PBXProject "Star Wars App" */ = {
+		4DD669652AB2C6EC00964936 /* Build configuration list for PBXProject "StarWarsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DD6697C2AB2C6ED00964936 /* Debug */,
@@ -423,7 +423,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4DD6697E2AB2C6ED00964936 /* Build configuration list for PBXNativeTarget "Star Wars App" */ = {
+		4DD6697E2AB2C6ED00964936 /* Build configuration list for PBXNativeTarget "StarWarsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4DD6697F2AB2C6ED00964936 /* Debug */,
